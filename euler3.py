@@ -17,7 +17,7 @@ def max_prime_factor(num):
 max_prime_factor(600851475143)
 
 
-## from forum, 반복문 한번만 씀,,
+## from forum, 반복문 한번만 씀,,,
 def big_prime(n):
     p = 2
     while n != 1:

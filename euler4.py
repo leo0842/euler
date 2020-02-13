@@ -18,3 +18,7 @@ for i in range(999,9,-1):
             if all(TF_array):
                 pali_array.append(multi)
 print(max(pali_array))
+
+##from forum, 천재,,
+palindromes = [x * y for x in range(100, 1000) for y in range(100, 1000) if str(x * y) == str(x * y)[::-1]]
+print(max(palindromes))

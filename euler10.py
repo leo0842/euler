@@ -41,7 +41,7 @@ print("sum: ",sum_prime)
 elapsed = (time.time() - start)         ## 200만을 돌렸을 때 11.4629487991333초가 나왔다.
 print("This code took: " + str(elapsed) + " seconds")
 
-## 그런데 굳이 루트 씌운 수 이하의 모든 수를 나눌 필요가 없다. 불만이었다. 그래서 해당 아이디어와 내가 처음 만들었던 함수를 섞었다.
+## 그런데 굳이 루트 씌운 수 이하의 모든 수를 나눌 필요가 없다. 불만이었다. 그래서 내가 처음 만들었던 함수를 결합하였다.
 ## 10 - 3
 def sum_of_prime1(n):
     prime = [2]
@@ -59,10 +59,9 @@ def sum_of_prime1(n):
     return sum(prime), len(prime)
 
 start = time.time()
-a = sum_of_prime1(2000000)
+primt(sum_of_prime1(2000000))
 end = time.time() - start
-print(end)
-a                                       ## 1.8267602920532227초가 나왔다.
+print(end)                              ## 1.8267602920532227초가 나왔다.
 
 ## 10 - 4
 ## 에라토스테네스의 체를 이용한 방법이다.

@@ -26,7 +26,7 @@ a                                       ## 9.044475078582764초가 나온다. �
 start = time.time()
 def is_prime(num):
     prime = True
-    for i in range(2,int(num**0.5)+1):  ## 새로 알게 되었다. 해당 수를 루트 씌운 수에서 1을 더한 수 까지 나눠지는 수가 없으면 그 수는 소수이다.
+    for i in range(2,int(num**0.5)+1):  ## 새로 알게 되었다. 해당 수의 제곱근까지 나눠지는 수가 없으면 그 수는 소수이다.
                                         ## 위의 방법으로 반복문을 돌리는 범위를 대폭 줄일 수 있었다.
         if num % i == 0:
             prime = False
@@ -41,11 +41,11 @@ print("sum: ",sum_prime)
 elapsed = (time.time() - start)         ## 200만을 돌렸을 때 11.4629487991333초가 나왔다.
 print("This code took: " + str(elapsed) + " seconds")
 
-## 그런데 굳이 루트 씌운 수 이하의 모든 수를 나눌 필요가 없다. 불만이었다. 그래서 내가 처음 만들었던 함수를 결합하였다.
+## 그런데 굳이 제곱근 이하의 모든 수를 나눌 필요가 없다. 불만이었다. 그래서 내가 처음 만들었던 함수를 결합하였다.
 ## 10 - 3
 def sum_of_prime1(n):
     prime = [2]
-    prime_sqrt = [2]                    ## 루트 씌운 수만 돌릴 배열을 따로 만든다.
+    prime_sqrt = [2]                    ## 제곱근보다 작은 수만 돌릴 배열을 따로 만든다.
     for is_prime in range(3, n + 1):
         prime_check = True
         for j in prime_sqrt:            ## 모든 소수가 아닌 prime_sqrt만큼만 돌릴 것이다.
@@ -54,12 +54,12 @@ def sum_of_prime1(n):
                 break                   ## 개념은 위와 같다.
         if prime_check:
             prime.append(is_prime)
-            if prime_sqrt[-1] <= int(is_prime**0.5)+1:                      ## 해당 수에 루트 씌우고 1을 더한 수가 prime_sqrt보다 크면
+            if prime_sqrt[-1] <= int(is_prime**0.5):                      ## 해당 수의 제곱은이 prime_sqrt보다 크면
                 prime_sqrt.append(prime[prime.index(prime_sqrt[-1])+1])     ## prime 배열에서 찾아와 그 다음 소수를 sqrt배열에 붙인다.
     return sum(prime), len(prime)
 
 start = time.time()
-primt(sum_of_prime1(2000000))
+print(sum_of_prime1(2000000))
 end = time.time() - start
 print(end)                              ## 1.8267602920532227초가 나왔다.
 

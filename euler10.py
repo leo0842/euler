@@ -54,7 +54,7 @@ def sum_of_prime1(n):
                 break                   ## 개념은 위와 같다.
         if prime_check:
             prime.append(is_prime)
-            if prime_sqrt[-1] <= int(is_prime**0.5):                      ## 해당 수의 제곱은이 prime_sqrt보다 크면
+            if prime_sqrt[-1] <= int(is_prime**0.5):                      ## 해당 수의 제곱근이 prime_sqrt보다 크면
                 prime_sqrt.append(prime[prime.index(prime_sqrt[-1])+1])     ## prime 배열에서 찾아와 그 다음 소수를 sqrt배열에 붙인다.
     return sum(prime), len(prime)
 

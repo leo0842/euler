@@ -82,20 +82,20 @@ print(end, "seconds")       ## 결과값은 (576, 76576500) 걸린 시간은 6.8
 ## 훨씬 간단한거
 
 start = time.time()
-x = 500
-count = 1
-sum = 0
-z = 0
-while z < x:
-    sum += count
-    for i in range(1, int(sum**0.5)+1):
-        if sum % i == 0:
-            z += 1
-    if z > x//2:
-        print(sum)
-        break
-    count += 1
-    z = 0
+x = 500                                     ## 목표 약수의 개수
+count = 1                                   ## 점점 늘려갈 변수
+sum = 0                                     ## 삼각수를 만들기 위한 변수
+z = 0                                       ## 해당 삼각수의 약수의 개수
+while z < x:                                ## 목표 약수의 개수가 넘어가면 중지
+    sum += count                            ## 삼각수를 만듦
+    for i in range(1, int(sum**0.5)+1):     ## 해당 수의 제곱근까지 범위 즉 약수들을 배열했을 때 반환점까지
+        if sum % i == 0:                    ## 나눠지면:
+            z += 1                          ## 약수 개수 하나 늘림
+    if z > x//2:                            ## 반환점까지의 약수가 목표 약수의 개수 나누기 2보다 크면
+        print(sum)                          ## print하고
+        break                               ## 중지
+    count += 1                              ## 아니면 +1하고
+    z = 0                                   ## 약수의 개수 변수를 다시 0으로 만듦
 print("end")
 end = time.time() - start
 print(end)                  ## 76576500 end  결린 시간은 5.334469795227051
